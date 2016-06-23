@@ -2,21 +2,13 @@
 Bash Setup
 ##########
 
-Step 0: Backup your bash environment
-------------------------------------
-
-some text text text
-
-.. code-block:: sh
-
-    tar cfz envbackup.tar.gz .profile, .bash* 
 
 
 Step 1: Removing references to Ureka
 ------------------------------------
 
 
-Remove all references to ``Ureka`` (``SSB`` , ``SSBX``, ``SSBDEV``) in your shell files.  If you have never edited your ``bash`` setup files ``.profile``, or ``.bash*``), you can ignore these for now as we are going to delete them all later on, and just focus on your ``tcsh`` files, these could include: ``.cshrc``, ``.setenv``, or ``.scienv``.  You may or may not have some of these files depending on when your machine was setup originally. Accounts created after 2008 may have an additional ``.mysetenv`` file.
+Remove all references to ``Ureka`` (``SSB`` , ``SSBX``, ``SSBDEV``) in your shell files.  If you have never edited your ``bash`` setup files ``.profile``, or ``.bash*``), you can ignore these for now as we are going to delete them all later on, and just focus on your ``tcsh`` files, these could include: ``.cshrc``, ``.setenv``, or ``.scienv``.  You may or may not have some of these files depending on when your machine was set up originally. Accounts created after 2008 may have an additional ``.mysetenv`` file.
 
 If you not sure what to look for, and haven’t edited your shell files before, look for references to ``ssbx``, ``ssbrel`` or ``ssbdev`` and remove those lines.  You can use the following listed commands to search for ``Ureka`` dependencies.  You may see a return from your ``$HOME/.ureka/.default`` file.  This is expected and can be ignored.
 
@@ -36,15 +28,23 @@ Darwin’s BSD find does not support -maxdepth (users can install gnu findutils 
     find $HOME -type f -name '.*' | xargs -I'{}' grep -n -H -E --color=auto 'ssbrel|ssbx|ssbdev' "{}"
 
 
-Step 2: Remove your current bash files
+Step 2: Backup your current bash files
 --------------------------------------
 
 .. warning::
 
    Only follow this step if you have not added anything to your ITSD-provided ``bash`` setup files (``.profile``, or ``.bash*``).  If your ``bash`` files are configured already, you can skip steps 2 and 3.
 
+Tar and zip your current bash setup files with the following command:
 
-Wipe all ``bash`` startup files currently in your ``~home`` directory.
+.. code-block:: sh
+
+    tar cfz envbackup.tar.gz .profile .bash* 
+
+
+Step 3: Rebuilding your bash startup files
+------------------------------------------
+Now that you have a backup of your ``bash`` files safely stored, wipe all ``bash`` startup files currently in your ``~home`` directory.
 
 .. code-block:: sh
 
@@ -53,10 +53,7 @@ Wipe all ``bash`` startup files currently in your ``~home`` directory.
     >rm ~/.bash*
 
 
-Step 3: Rebuilding your bash startup file
------------------------------------------
-
-Open up a new ``~/.bash_profile`` file.  Remember this should be a blank text file, since we just deleted the previous copy if it existed.  We will also setup a ``~/.bashrc`` file.  Below is an example of a standard ``~/.bash_profile`` and  ``~/.bashrc``.
+Open up a new ``~/.bash_profile`` file.  Remember this should be a blank text file, since we just deleted the previous copy if it existed.  We will also set up a ``~/.bashrc`` file.  Below is an example of a standard ``~/.bash_profile`` and  ``~/.bashrc``.
 
 .. code-block:: sh
 
@@ -123,7 +120,7 @@ Finally, you should now restart your terminal program so that these changes are 
     
 .. note::
 
-   **Regarding if statements:** Many of the statements originally set up in the ``tcsh`` files that were nested in ``if`` statement calls were setup to test if your machine was connected to the STScI network.  For example, if you setup an environment variable that links to a directory on ``/grp/hst/`` and try and access this directory from outside the institute network, it will fail.
+   **Regarding if statements:** Many of the statements originally in the ``tcsh`` files that were nested in ``if`` statement calls were set up to test if your machine was connected to the STScI network.  For example, if you set up an environment variable that links to a directory on ``/grp/hst/`` and try and access this directory from outside the institute network, it will fail.
 
    For ``if`` statements that you have written into your ``tcsh`` files yourself, please see this `bash guide <http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html>`_ for ``if`` statements in ``bash``.
 
@@ -171,7 +168,7 @@ If you plan on using ``bash`` from ``tsch``, you can switch into ``bash`` using
 
    >bash -l
 
-This call will inherit your environment setup from your ``tcsh``.  This means any environment variables you have setup in your ``tsch`` will get transferred over. 
+This call will inherit your environment setup from your ``tcsh``.  This means any environment variables you have set in your ``tsch`` will get transferred over. 
 
 .. warning::
 

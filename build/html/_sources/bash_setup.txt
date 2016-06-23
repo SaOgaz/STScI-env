@@ -2,14 +2,6 @@
 Bash Setup
 ##########
 
-Step 0: Backup your bash environment
-------------------------------------
-
-some text text text
-
-.. code-block:: sh
-
-    tar cfz envbackup.tar.gz .profile, .bash* 
 
 
 Step 1: Removing references to Ureka
@@ -36,15 +28,23 @@ Darwin’s BSD find does not support -maxdepth (users can install gnu findutils 
     find $HOME -type f -name '.*' | xargs -I'{}' grep -n -H -E --color=auto 'ssbrel|ssbx|ssbdev' "{}"
 
 
-Step 2: Remove your current bash files
+Step 2: Backup your current bash files
 --------------------------------------
 
 .. warning::
 
    Only follow this step if you have not added anything to your ITSD-provided ``bash`` setup files (``.profile``, or ``.bash*``).  If your ``bash`` files are configured already, you can skip steps 2 and 3.
 
+Tar and zip your current bash setup files with the following command:
 
-Wipe all ``bash`` startup files currently in your ``~home`` directory.
+.. code-block:: sh
+
+    tar cfz envbackup.tar.gz .profile .bash* 
+
+
+Step 3: Rebuilding your bash startup file
+-----------------------------------------
+Now that you have a backup of your ``bash`` files safely stored, wipe all ``bash`` startup files currently in your ``~home`` directory.
 
 .. code-block:: sh
 
@@ -52,9 +52,6 @@ Wipe all ``bash`` startup files currently in your ``~home`` directory.
     >rm ~/.profile
     >rm ~/.bash*
 
-
-Step 3: Rebuilding your bash startup file
------------------------------------------
 
 Open up a new ``~/.bash_profile`` file.  Remember this should be a blank text file, since we just deleted the previous copy if it existed.  We will also setup a ``~/.bashrc`` file.  Below is an example of a standard ``~/.bash_profile`` and  ``~/.bashrc``.
 

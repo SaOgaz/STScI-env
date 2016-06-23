@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Bash Setup &mdash; bashSTScI 0.1.0 documentation</title>
+  <title>Bash Setup &mdash; STScI-env 0.1.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="bashSTScI 0.1.0 documentation" href="index.html"/>
+    <link rel="top" title="STScI-env 0.1.0 documentation" href="index.html"/>
         <link rel="next" title="Installing Anaconda and AstroConda" href="installing_anaconda.html"/>
         <link rel="prev" title="Anaconda at STScI - A Walkthrough" href="index.html"/> 
 
@@ -50,7 +50,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> bashSTScI
+            <a href="index.html" class="icon icon-home"> STScI-env
           
 
           
@@ -103,7 +103,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">bashSTScI</a>
+        <a href="index.html">STScI-env</a>
       </nav>
 
 
@@ -136,13 +136,6 @@
             
   <div class="section" id="bash-setup">
 <h1>Bash Setup<a class="headerlink" href="#bash-setup" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="step-0-backup-your-bash-environment">
-<h2>Step 0: Backup your bash environment<a class="headerlink" href="#step-0-backup-your-bash-environment" title="Permalink to this headline">¶</a></h2>
-<p>some text text text</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>tar cfz envbackup.tar.gz .profile, .bash*
-</pre></div>
-</div>
-</div>
 <div class="section" id="step-1-removing-references-to-ureka">
 <h2>Step 1: Removing references to Ureka<a class="headerlink" href="#step-1-removing-references-to-ureka" title="Permalink to this headline">¶</a></h2>
 <p>Remove all references to <code class="docutils literal"><span class="pre">Ureka</span></code> (<code class="docutils literal"><span class="pre">SSB</span></code> , <code class="docutils literal"><span class="pre">SSBX</span></code>, <code class="docutils literal"><span class="pre">SSBDEV</span></code>) in your shell files.  If you have never edited your <code class="docutils literal"><span class="pre">bash</span></code> setup files <code class="docutils literal"><span class="pre">.profile</span></code>, or <code class="docutils literal"><span class="pre">.bash*</span></code>), you can ignore these for now as we are going to delete them all later on, and just focus on your <code class="docutils literal"><span class="pre">tcsh</span></code> files, these could include: <code class="docutils literal"><span class="pre">.cshrc</span></code>, <code class="docutils literal"><span class="pre">.setenv</span></code>, or <code class="docutils literal"><span class="pre">.scienv</span></code>.  You may or may not have some of these files depending on when your machine was setup originally. Accounts created after 2008 may have an additional <code class="docutils literal"><span class="pre">.mysetenv</span></code> file.</p>
@@ -157,20 +150,24 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-2-remove-your-current-bash-files">
-<h2>Step 2: Remove your current bash files<a class="headerlink" href="#step-2-remove-your-current-bash-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-2-backup-your-current-bash-files">
+<h2>Step 2: Backup your current bash files<a class="headerlink" href="#step-2-backup-your-current-bash-files" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Only follow this step if you have not added anything to your ITSD-provided <code class="docutils literal"><span class="pre">bash</span></code> setup files (<code class="docutils literal"><span class="pre">.profile</span></code>, or <code class="docutils literal"><span class="pre">.bash*</span></code>).  If your <code class="docutils literal"><span class="pre">bash</span></code> files are configured already, you can skip steps 2 and 3.</p>
 </div>
-<p>Wipe all <code class="docutils literal"><span class="pre">bash</span></code> startup files currently in your <code class="docutils literal"><span class="pre">~home</span></code> directory.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>&gt;rm ~/.profile
-&gt;rm ~/.bash*
+<p>Tar and zip your current bash setup files with the following command:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>tar cfz envbackup.tar.gz .profile .bash*
 </pre></div>
 </div>
 </div>
 <div class="section" id="step-3-rebuilding-your-bash-startup-file">
 <h2>Step 3: Rebuilding your bash startup file<a class="headerlink" href="#step-3-rebuilding-your-bash-startup-file" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have a backup of your <code class="docutils literal"><span class="pre">bash</span></code> files safely stored, wipe all <code class="docutils literal"><span class="pre">bash</span></code> startup files currently in your <code class="docutils literal"><span class="pre">~home</span></code> directory.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>&gt;rm ~/.profile
+&gt;rm ~/.bash*
+</pre></div>
+</div>
 <p>Open up a new <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> file.  Remember this should be a blank text file, since we just deleted the previous copy if it existed.  We will also setup a <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.  Below is an example of a standard <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> and  <code class="docutils literal"><span class="pre">~/.bashrc</span></code>.</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># File - ~/.bash_profile (or .profile)</span>
 

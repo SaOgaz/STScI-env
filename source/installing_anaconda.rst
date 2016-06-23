@@ -16,7 +16,7 @@ As previously mentioned, Anaconda works with the ``bash`` shell, so please make 
 
     >bash -l
 
-Step 2: Make sure Anaconda was setup correctly
+Step 2: Make sure Anaconda was set up correctly
 ----------------------------------------------
 
 To test that your ``PATH`` variable was correctly set for Anaconda after installation, check for the following line in your ``~/.bashrc`` file. It should be similar to the following:
