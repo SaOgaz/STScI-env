@@ -14,7 +14,7 @@ As previously mentioned, Anaconda works with the ``bash`` shell, so please make 
 
 .. code-block:: sh
 
-    >bash -l
+    bash -l
 
 Step 2: Make sure Anaconda was set up correctly
 ----------------------------------------------
@@ -23,10 +23,10 @@ To test that your ``PATH`` variable was correctly set for Anaconda after install
 
 .. code-block:: sh
 
-    mac:
+    Mac:
     export PATH="$HOME/anaconda3/bin:$PATH"
 
-    linux:
+    Linux:
     export PATH="/user/username/anaconda2/bin"
 
 If this line is missing please add it, making sure to use your Anaconda folder name. This varies depending on which version of Anaconda/Miniconda you downloaded. The default install location of Anaconda/Miniconda is in your home directory.  So if you’ve run the Anaconda/Miniconda install with the default settings you should now see a directory similar to this in your home directory: ``~/anaconda2`` (If you grabbed Anaconda2), ``~/miniconda3`` (if you grabbed Miniconda3), etc.
@@ -52,7 +52,7 @@ This installs a base version of a new environment.  Containing just the basic Py
 
 .. code-block:: sh
 
-    $ conda create -n myenvironment python=2
+    conda create -n myenvironment python=2
 
 
 **Example 2:**
@@ -61,7 +61,7 @@ Here we’re creating a new environment that will be populated with the basic Py
 
 .. code-block:: sh
 
-    $ conda create -n bokehenv python=2 bokeh
+    conda create -n bokehenv python=2 bokeh
 
 
 **Example 3:**
@@ -70,9 +70,9 @@ Alternatively, I could have omitted ``bokeh`` as an argument, or any specific pa
 
 .. code-block:: sh
 
-    $ conda create -n bokehenv
-    $ source activate bokehenv
-    $ conda install bokeh
+    conda create -n bokehenv
+    source activate bokehenv
+    conda install bokeh
 
 **Example 4:**
 
@@ -80,8 +80,8 @@ It is also possible to install packages into a named environment without the nee
 
 .. code-block:: sh
 
-    $ conda install -n bokehenv bokeh
-    $ source activate bokehenv
+    conda install -n bokehenv bokeh
+    source activate bokehenv
 
 
 You’ll see these commands again as you walk through the AstroConda installation.
@@ -96,19 +96,19 @@ The next step is to add the ``astroconda`` channel.
 
 .. code-block:: sh
 
-    $ conda config --add channels http://ssb.stsci.edu/astroconda
+    conda config --add channels http://ssb.stsci.edu/astroconda
 
 Now we will create a new environment that contains AstroConda's ``stsci`` metapackage
 
 .. code-block:: sh
 
-    $ conda create -n astroconda stsci
+    conda create -n astroconda stsci
 
 and activate this new environment.
 
 .. code-block:: sh
  
-    $ source activate astroconda
+    source activate astroconda
 
 Make sure you are installing the ``stsci`` metapackage into a new environment and not your root Anaconda environment.  If this has happened, please see the `AstroConda FAQ page <http://astroconda.readthedocs.io/en/latest/faq.html#i-installed-astroconda-into-my-anaconda-root-environment-what-now>`_ for instructions.
 
@@ -119,7 +119,7 @@ The Astropy Project also has a Anaconda channel which contains all of the ``astr
 
 .. code-block:: sh
 
-    $ conda config --add channels astropy
+    conda config --add channels astropy
 
 and you now have the ``astropy`` channel included by default.
 
@@ -133,7 +133,7 @@ Step 4: Quick test to see if your setup was succesful
 
 
 .. note::
-   For a easy to use Conda reference sheet the Anaconda website has a helpful `Conda cheat sheet <http://conda.pydata.org/docs/using/cheatsheet.html>`_, or you can pick up a hardcopy right outside the IT helpdesk room in muller 330.
+   For a easy to use Conda reference sheet the Anaconda website has a helpful `Conda cheat sheet <http://conda.pydata.org/docs/using/cheatsheet.html>`_, or you can pick up a hardcopy right outside the IT helpdesk room in Muller 330.
 
 Were going to simulate a fresh new bash shell for testing by using the following script, which you should save into a file called blackhole_env.sh:
 

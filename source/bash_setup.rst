@@ -13,15 +13,15 @@ Remove all references to ``Ureka`` (``SSB`` , ``SSBX``, ``SSBDEV``) in your shel
 If you not sure what to look for, and haven’t edited your shell files before, look for references to ``ssbx``, ``ssbrel`` or ``ssbdev`` and remove those lines.  You can use the following listed commands to search for ``Ureka`` dependencies.  You may see a return from your ``$HOME/.ureka/.default`` file.  This is expected and can be ignored.
 
 
-**linux**:
+**Linux**:
 
 .. code-block:: sh
 
     find $HOME -maxdepth 1 -type f -name '.*' | xargs -I'{}' grep -n -H -E --color=auto 'ssbrel|ssbx|ssbdev' "{}"
 
-**osx**: 
+**OSX**: 
 
-Darwin’s BSD find does not support -maxdepth (users can install gnu findutils if they wish to execute the linux-style command on OS X, however)
+Darwin’s BSD find does not support -maxdepth (users can install gnu findutils if they wish to execute the Linux-style command on OS X, however)
 
 .. code-block:: sh
     
@@ -49,8 +49,8 @@ Now that you have a backup of your ``bash`` files safely stored, wipe all ``bash
 .. code-block:: sh
 
 	
-    >rm ~/.profile
-    >rm ~/.bash*
+    rm ~/.profile
+    rm ~/.bash*
 
 
 Open up a new ``~/.bash_profile`` file.  Remember this should be a blank text file, since we just deleted the previous copy if it existed.  We will also set up a ``~/.bashrc`` file.  Below is an example of a standard ``~/.bash_profile`` and  ``~/.bashrc``.
@@ -143,13 +143,13 @@ To switch your default shell on Mac machines, open a terminal and use the follow
 
 .. code-block:: sh
 
-    > chsh -s /bin/bash
+    chsh -s /bin/bash
 
 and enter your password. To verify that the change went through, restart your terminal program, and type the following:
 
 .. code-block:: sh
 
-    $ echo $SHELL
+    echo $SHELL
 
 This command should return ``/bin/bash``
 
@@ -166,7 +166,7 @@ If you plan on using ``bash`` from ``tsch``, you can switch into ``bash`` using
 
 .. code-block:: sh
 
-   >bash -l
+   bash -l
 
 This call will inherit your environment setup from your ``tcsh``.  This means any environment variables you have set in your ``tsch`` will get transferred over. 
 

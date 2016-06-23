@@ -36,7 +36,7 @@ To do this you can use the ``-p`` option when installing Anaconda. At this time 
 
 .. code:: sh
    
-   $ sh Anaconda2-4.0.0-Linux-x86_64.sh -p /user/username/anaconda2
+   sh Anaconda2-4.0.0-Linux-x86_64.sh -p /user/username/anaconda2
 
 Here you can change the folder name ``anaconda2`` to correspond to whichever version you chose to install, i.e. ``anaconda3``, ``miniconda2``, or ``miniconda3``.
 
