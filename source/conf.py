@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'bashSTScI'
+project = u'STScI-env'
 copyright = u'2016, Space Telescope Science Institute'
 author = u'Sara Ogaz, Joe Hunkler'
 
