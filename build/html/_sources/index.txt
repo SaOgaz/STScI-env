@@ -9,7 +9,7 @@ Anaconda at STScI - A Walkthrough
 
 For these reasons, among others, SSB has chosen to change the way we will be distributing STScI software packages and tools.  This new STScI Conda package is called Astroconda, and in order to install these packages the user must install the Anaconda Python distribution platform.  Here you will find a guide for how to install Anaconda and the Astroconda package on STScI machines.  We will go over the following steps:
 
-1. Setup ``bash`` as your shell (not always straightforward on STScI machines)
+1. Set up your ``bash`` shell (not always straightforward on STScI machines)
 2. Install Anaconda
 3. Add the STScI Conda channel
 4. Install the STScI Conda software
@@ -36,7 +36,7 @@ To do this you can use the ``-p`` option when installing Anaconda. At this time 
 
 .. code:: sh
    
-   $ sh Anaconda2-4.0.0-Linux-x86_64.sh -p /user/username/anaconda2
+   sh Anaconda2-4.0.0-Linux-x86_64.sh -p /user/username/anaconda2
 
 Here you can change the folder name ``anaconda2`` to correspond to whichever version you chose to install, i.e. ``anaconda3``, ``miniconda2``, or ``miniconda3``.
 

@@ -138,14 +138,14 @@
 <h1>Bash Setup<a class="headerlink" href="#bash-setup" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="step-1-removing-references-to-ureka">
 <h2>Step 1: Removing references to Ureka<a class="headerlink" href="#step-1-removing-references-to-ureka" title="Permalink to this headline">¶</a></h2>
-<p>Remove all references to <code class="docutils literal"><span class="pre">Ureka</span></code> (<code class="docutils literal"><span class="pre">SSB</span></code> , <code class="docutils literal"><span class="pre">SSBX</span></code>, <code class="docutils literal"><span class="pre">SSBDEV</span></code>) in your shell files.  If you have never edited your <code class="docutils literal"><span class="pre">bash</span></code> setup files <code class="docutils literal"><span class="pre">.profile</span></code>, or <code class="docutils literal"><span class="pre">.bash*</span></code>), you can ignore these for now as we are going to delete them all later on, and just focus on your <code class="docutils literal"><span class="pre">tcsh</span></code> files, these could include: <code class="docutils literal"><span class="pre">.cshrc</span></code>, <code class="docutils literal"><span class="pre">.setenv</span></code>, or <code class="docutils literal"><span class="pre">.scienv</span></code>.  You may or may not have some of these files depending on when your machine was setup originally. Accounts created after 2008 may have an additional <code class="docutils literal"><span class="pre">.mysetenv</span></code> file.</p>
+<p>Remove all references to <code class="docutils literal"><span class="pre">Ureka</span></code> (<code class="docutils literal"><span class="pre">SSB</span></code> , <code class="docutils literal"><span class="pre">SSBX</span></code>, <code class="docutils literal"><span class="pre">SSBDEV</span></code>) in your shell files.  If you have never edited your <code class="docutils literal"><span class="pre">bash</span></code> setup files <code class="docutils literal"><span class="pre">.profile</span></code>, or <code class="docutils literal"><span class="pre">.bash*</span></code>), you can ignore these for now as we are going to delete them all later on, and just focus on your <code class="docutils literal"><span class="pre">tcsh</span></code> files, these could include: <code class="docutils literal"><span class="pre">.cshrc</span></code>, <code class="docutils literal"><span class="pre">.setenv</span></code>, or <code class="docutils literal"><span class="pre">.scienv</span></code>.  You may or may not have some of these files depending on when your machine was set up originally. Accounts created after 2008 may have an additional <code class="docutils literal"><span class="pre">.mysetenv</span></code> file.</p>
 <p>If you not sure what to look for, and haven’t edited your shell files before, look for references to <code class="docutils literal"><span class="pre">ssbx</span></code>, <code class="docutils literal"><span class="pre">ssbrel</span></code> or <code class="docutils literal"><span class="pre">ssbdev</span></code> and remove those lines.  You can use the following listed commands to search for <code class="docutils literal"><span class="pre">Ureka</span></code> dependencies.  You may see a return from your <code class="docutils literal"><span class="pre">$HOME/.ureka/.default</span></code> file.  This is expected and can be ignored.</p>
-<p><strong>linux</strong>:</p>
+<p><strong>Linux</strong>:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>find <span class="nv">$HOME</span> -maxdepth <span class="m">1</span> -type f -name <span class="s1">&#39;.*&#39;</span> <span class="p">|</span> xargs -I<span class="s1">&#39;{}&#39;</span> grep -n -H -E --color<span class="o">=</span>auto <span class="s1">&#39;ssbrel|ssbx|ssbdev&#39;</span> <span class="s2">&quot;{}&quot;</span>
 </pre></div>
 </div>
-<p><strong>osx</strong>:</p>
-<p>Darwin’s BSD find does not support -maxdepth (users can install gnu findutils if they wish to execute the linux-style command on OS X, however)</p>
+<p><strong>OSX</strong>:</p>
+<p>Darwin’s BSD find does not support -maxdepth (users can install gnu findutils if they wish to execute the Linux-style command on OS X, however)</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>find <span class="nv">$HOME</span> -type f -name <span class="s1">&#39;.*&#39;</span> <span class="p">|</span> xargs -I<span class="s1">&#39;{}&#39;</span> grep -n -H -E --color<span class="o">=</span>auto <span class="s1">&#39;ssbrel|ssbx|ssbdev&#39;</span> <span class="s2">&quot;{}&quot;</span>
 </pre></div>
 </div>
@@ -161,14 +161,14 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-3-rebuilding-your-bash-startup-file">
-<h2>Step 3: Rebuilding your bash startup file<a class="headerlink" href="#step-3-rebuilding-your-bash-startup-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-3-rebuilding-your-bash-startup-files">
+<h2>Step 3: Rebuilding your bash startup files<a class="headerlink" href="#step-3-rebuilding-your-bash-startup-files" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have a backup of your <code class="docutils literal"><span class="pre">bash</span></code> files safely stored, wipe all <code class="docutils literal"><span class="pre">bash</span></code> startup files currently in your <code class="docutils literal"><span class="pre">~home</span></code> directory.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>&gt;rm ~/.profile
-&gt;rm ~/.bash*
+<div class="highlight-sh"><div class="highlight"><pre><span></span>rm ~/.profile
+rm ~/.bash*
 </pre></div>
 </div>
-<p>Open up a new <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> file.  Remember this should be a blank text file, since we just deleted the previous copy if it existed.  We will also setup a <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.  Below is an example of a standard <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> and  <code class="docutils literal"><span class="pre">~/.bashrc</span></code>.</p>
+<p>Open up a new <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> file.  Remember this should be a blank text file, since we just deleted the previous copy if it existed.  We will also set up a <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.  Below is an example of a standard <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> and  <code class="docutils literal"><span class="pre">~/.bashrc</span></code>.</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># File - ~/.bash_profile (or .profile)</span>
 
 <span class="c1"># Common shell aliases</span>
@@ -200,25 +200,35 @@
 </div>
 <p>the <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file will get sourced by <code class="docutils literal"><span class="pre">~/.bash_profile</span></code>.</p>
 <p>Now we can start to port the environment setup information that was in the <code class="docutils literal"><span class="pre">tcsh</span></code> startup files over to your <code class="docutils literal"><span class="pre">bash</span></code> files.  Most of these commands will either be <code class="docutils literal"><span class="pre">setenv</span></code> or <code class="docutils literal"><span class="pre">alias</span></code> commands.  <strong>There is a syntax difference between ``tcsh`` and ``bash``</strong>.  You can put these kinds of commands into your <code class="docutils literal"><span class="pre">.bash_profile</span></code> file.  Below are some examples of how to translate <code class="docutils literal"><span class="pre">tcsh</span></code> to <code class="docutils literal"><span class="pre">bash</span></code> syntax.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>setenv cdbs /grp/hst/cdbs/
-<span class="nb">export</span> <span class="nv">cdbs</span><span class="o">=</span><span class="s2">&quot;/grp/hst/cdbs/&quot;</span>
-
-setenv PATH <span class="nv">$HOME</span>/pybin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;~/pybin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
-
-<span class="nb">alias</span> emax <span class="s1">&#39;open -a &quot;Aquamacs&quot;&#39;</span>
-<span class="nb">alias</span> <span class="nv">emax</span><span class="o">=</span><span class="s1">&#39;open -a &quot;Aquamacs&quot;&#39;</span>
-</pre></div>
-</div>
-<p>A few <code class="docutils literal"><span class="pre">bash</span></code> commands are less straightforward to change over, such as default editor.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>setenv EMACS editor
-<span class="nv">EDITOR</span><span class="o">=</span>emacs<span class="p">;</span> <span class="nb">export</span> EDITOR
-</pre></div>
-</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">tcsh syntax</th>
+<th class="head">bash syntax</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>setenv cdbs /grp/hst/cdbs/</td>
+<td>export cdbs=&#8221;/grp/hst/cdbs/&#8221;</td>
+</tr>
+<tr class="row-odd"><td>setenv PATH $HOME/pybin:${PATH}</td>
+<td>export PATH=&#8221;~/pybin:$PATH&#8221;</td>
+</tr>
+<tr class="row-even"><td>alias emax &#8216;open -a &#8220;Aquamacs&#8221;&#8217;</td>
+<td>alias emax=&#8217;open -a &#8220;Aquamacs&#8221;&#8217;</td>
+</tr>
+<tr class="row-odd"><td>setenv EMACS editor</td>
+<td>EDITOR=emacs; export EDITOR</td>
+</tr>
+</tbody>
+</table>
 <p>Finally, you should now restart your terminal program so that these changes are applied.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p><strong>Regarding if statements:</strong> Many of the statements originally set up in the <code class="docutils literal"><span class="pre">tcsh</span></code> files that were nested in <code class="docutils literal"><span class="pre">if</span></code> statement calls were setup to test if your machine was connected to the STScI network.  For example, if you setup an environment variable that links to a directory on <code class="docutils literal"><span class="pre">/grp/hst/</span></code> and try and access this directory from outside the institute network, it will fail.</p>
+<p><strong>Regarding if statements:</strong> Many of the statements originally in the <code class="docutils literal"><span class="pre">tcsh</span></code> files that were nested in <code class="docutils literal"><span class="pre">if</span></code> statement calls were set up to test if your machine was connected to the STScI network.  For example, if you set up an environment variable that links to a directory on <code class="docutils literal"><span class="pre">/grp/hst/</span></code> and try and access this directory from outside the institute network, it will fail.</p>
 <p class="last">For <code class="docutils literal"><span class="pre">if</span></code> statements that you have written into your <code class="docutils literal"><span class="pre">tcsh</span></code> files yourself, please see this <a class="reference external" href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">bash guide</a> for <code class="docutils literal"><span class="pre">if</span></code> statements in <code class="docutils literal"><span class="pre">bash</span></code>.</p>
 </div>
 </div>
@@ -232,11 +242,11 @@ setenv PATH <span class="nv">$HOME</span>/pybin:<span class="si">${</span><span 
 </div>
 <p><strong>For Mac</strong></p>
 <p>To switch your default shell on Mac machines, open a terminal and use the following command</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>&gt; chsh -s /bin/bash
+<div class="highlight-sh"><div class="highlight"><pre><span></span>chsh -s /bin/bash
 </pre></div>
 </div>
 <p>and enter your password. To verify that the change went through, restart your terminal program, and type the following:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="nv">$SHELL</span>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="nv">$SHELL</span>
 </pre></div>
 </div>
 <p>This command should return <code class="docutils literal"><span class="pre">/bin/bash</span></code></p>
@@ -246,10 +256,10 @@ setenv PATH <span class="nv">$HOME</span>/pybin:<span class="si">${</span><span 
 <div class="section" id="using-bash-from-tcsh">
 <h3>Using bash from tcsh<a class="headerlink" href="#using-bash-from-tcsh" title="Permalink to this headline">¶</a></h3>
 <p>If you plan on using <code class="docutils literal"><span class="pre">bash</span></code> from <code class="docutils literal"><span class="pre">tsch</span></code>, you can switch into <code class="docutils literal"><span class="pre">bash</span></code> using</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>&gt;bash -l
+<div class="highlight-sh"><div class="highlight"><pre><span></span>bash -l
 </pre></div>
 </div>
-<p>This call will inherit your environment setup from your <code class="docutils literal"><span class="pre">tcsh</span></code>.  This means any environment variables you have setup in your <code class="docutils literal"><span class="pre">tsch</span></code> will get transferred over.</p>
+<p>This call will inherit your environment setup from your <code class="docutils literal"><span class="pre">tcsh</span></code>.  This means any environment variables you have set in your <code class="docutils literal"><span class="pre">tsch</span></code> will get transferred over.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">If you have a call to <code class="docutils literal"><span class="pre">ssbx/dev/rel</span></code> in one of your <code class="docutils literal"><span class="pre">tsch</span></code> setup file <code class="docutils literal"><span class="pre">Anaconda</span></code> will not run properly!</p>

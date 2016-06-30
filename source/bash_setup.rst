@@ -66,6 +66,7 @@ Open up a new ``~/.bash_profile`` file.  Remember this should be a blank text fi
 
     if [ -f $HOME/.bashrc ]; then
 	source $HOME/.bashrc
+    fi
 
     # EOF
 
@@ -88,6 +89,7 @@ Using this line:
 
     if [ -f $HOME/.bashrc ]; then
 	source $HOME/.bashrc
+    fi
 
 
 the ``~/.bashrc`` file will get sourced by ``~/.bash_profile``.
@@ -95,25 +97,18 @@ the ``~/.bashrc`` file will get sourced by ``~/.bash_profile``.
 Now we can start to port the environment setup information that was in the ``tcsh`` startup files over to your ``bash`` files.  Most of these commands will either be ``setenv`` or ``alias`` commands.  **There is a syntax difference between ``tcsh`` and ``bash``**.  You can put these kinds of commands into your ``.bash_profile`` file.  Below are some examples of how to translate ``tcsh`` to ``bash`` syntax.
 
 
++-------------------------------------+-------------------------------------+
+| tcsh syntax                         | bash syntax                         |
++=====================================+=====================================+
+| setenv cdbs /grp/hst/cdbs/          | export cdbs="/grp/hst/cdbs/"        |
++-------------------------------------+-------------------------------------+
+| setenv PATH $HOME/pybin:${PATH}     | export PATH="~/pybin:$PATH"         |
++-------------------------------------+-------------------------------------+
+| alias emax 'open -a "Aquamacs"'     | alias emax='open -a "Aquamacs"'     |
++-------------------------------------+-------------------------------------+
+|  setenv EMACS editor                | EDITOR=emacs; export EDITOR         |
++-------------------------------------+-------------------------------------+
 
-
-.. code-block:: sh
-
-    setenv cdbs /grp/hst/cdbs/
-    export cdbs="/grp/hst/cdbs/"
-
-    setenv PATH $HOME/pybin:${PATH}
-    export PATH="~/pybin:$PATH"
-
-    alias emax 'open -a "Aquamacs"'
-    alias emax='open -a "Aquamacs"'
-
-A few ``bash`` commands are less straightforward to change over, such as default editor.
-
-.. code-block:: sh
-
-    setenv EMACS editor
-    EDITOR=emacs; export EDITOR
 
 Finally, you should now restart your terminal program so that these changes are applied.
 

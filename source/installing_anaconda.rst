@@ -17,7 +17,7 @@ As previously mentioned, Anaconda works with the ``bash`` shell, so please make 
     bash -l
 
 Step 2: Make sure Anaconda was set up correctly
-----------------------------------------------
+-----------------------------------------------
 
 To test that your ``PATH`` variable was correctly set for Anaconda after installation, check for the following line in your ``~/.bashrc`` file. It should be similar to the following:
 
@@ -33,7 +33,7 @@ If this line is missing please add it, making sure to use your Anaconda folder n
 
 
 Let's talk about Conda environments...
------------------------------------------
+--------------------------------------
 
 Creating and switching Conda environments is just like switching ``Ureka`` environments, but *even better*!  We’ll cover it in a nutshell here, but for full details please see the `Anaconda documentation <http://conda.pydata.org/docs/using/envs.html>`_.  What so much better about it, you might ask?  Well, Conda environments give you complete freedom to:
 
@@ -135,19 +135,22 @@ Step 4: Quick test to see if your setup was succesful
 .. note::
    For a easy to use Conda reference sheet the Anaconda website has a helpful `Conda cheat sheet <http://conda.pydata.org/docs/using/cheatsheet.html>`_, or you can pick up a hardcopy right outside the IT helpdesk room in Muller 330.
 
-Were going to simulate a fresh new bash shell for testing by using the following script, which you should save into a file called blackhole_env.sh:
+Were going to simulate a fresh new bash shell for testing, so open a new terminal window and use the following commands.  You can start from a ``tcsh`` terminal.
 
-.. todo::
-
-   simulate fresh bash shell, working with Joe on this
 
 .. code-block:: sh
 
-    $ source activate astroconda
-    $ which python
-    ~/PREFIX#/envs/astroconda/bin/python
+    /grp/hst/ssb/blackhole/interactive.sh
+    source ~/.bash_profile
 
+If successful, the PS1 variable, responsible for controlling the look and feel of your shell prompt, will be reset to the system default; often ``[user@host: directory]$``. From here we will test Anaconda and your AstroConda install.
+   
 
-Where PREFIX will be ``[mini|ana]conda`` and ``#`` is either ``2`` or ``3`` depending on which version you installed. 
+.. code-block:: sh
+
+    source activate astroconda
+    which python
+    
+``which python`` should return ``/path/to/astroconda/bin/python``, where ``/path/to/`` will be the path to your Anaconda installation. If this test returns unexpcted results, you can contact support@stsci.edu for assistance.
 
 

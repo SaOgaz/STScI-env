@@ -144,17 +144,17 @@
 <h2>Step 1: Install<a class="headerlink" href="#step-1-install" title="Permalink to this headline">¶</a></h2>
 <p>There are several flavors of Anaconda for download. Anaconda contains the full <code class="docutils literal"><span class="pre">anaconda</span></code> software suite, while Miniconda contains only Conda and Python.  You also have the choice of Python 3 or Python 2.7 as your default Python version.  Please note, you can still access Python 3 from the Anaconda Python 2.7 version, and vice versa.  This just sets up your default to be one or the other.  Further details and installation instructions are available on the <a class="reference external" href="https://www.continuum.io/downloads">Anaconda webpage</a>.</p>
 <p>As previously mentioned, Anaconda works with the <code class="docutils literal"><span class="pre">bash</span></code> shell, so please make sure you are running install commands, etc. in a <code class="docutils literal"><span class="pre">bash</span></code> environment.  To do this before you have switched to <code class="docutils literal"><span class="pre">bash</span></code> as your default terminal, please use</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>&gt;bash -l
+<div class="highlight-sh"><div class="highlight"><pre><span></span>bash -l
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-2-make-sure-anaconda-was-setup-correctly">
-<h2>Step 2: Make sure Anaconda was setup correctly<a class="headerlink" href="#step-2-make-sure-anaconda-was-setup-correctly" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-2-make-sure-anaconda-was-set-up-correctly">
+<h2>Step 2: Make sure Anaconda was set up correctly<a class="headerlink" href="#step-2-make-sure-anaconda-was-set-up-correctly" title="Permalink to this headline">¶</a></h2>
 <p>To test that your <code class="docutils literal"><span class="pre">PATH</span></code> variable was correctly set for Anaconda after installation, check for the following line in your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file. It should be similar to the following:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>mac:
+<div class="highlight-sh"><div class="highlight"><pre><span></span>Mac:
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/anaconda3/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 
-linux:
+Linux:
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/user/username/anaconda2/bin&quot;</span>
 </pre></div>
 </div>
@@ -173,25 +173,25 @@ linux:
 <p>So how do you make a new Conda environment? This can be done in two simple statements.  To make a new environment just use the following commands:</p>
 <p><strong>Example 1:</strong></p>
 <p>This installs a base version of a new environment.  Containing just the basic Python libraries.  Here we’re specifying to use Python 2 (2.7).</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ conda create -n myenvironment <span class="nv">python</span><span class="o">=</span>2
+<div class="highlight-sh"><div class="highlight"><pre><span></span>conda create -n myenvironment <span class="nv">python</span><span class="o">=</span>2
 </pre></div>
 </div>
 <p><strong>Example 2:</strong></p>
 <p>Here we’re creating a new environment that will be populated with the basic Python libraries and adding in the Python <code class="docutils literal"><span class="pre">bokeh</span></code> library.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ conda create -n bokehenv <span class="nv">python</span><span class="o">=</span><span class="m">2</span> bokeh
+<div class="highlight-sh"><div class="highlight"><pre><span></span>conda create -n bokehenv <span class="nv">python</span><span class="o">=</span><span class="m">2</span> bokeh
 </pre></div>
 </div>
 <p><strong>Example 3:</strong></p>
 <p>Alternatively, I could have omitted <code class="docutils literal"><span class="pre">bokeh</span></code> as an argument, or any specific packages, and populated my environment manually.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ conda create -n bokehenv
-$ <span class="nb">source</span> activate bokehenv
-$ conda install bokeh
+<div class="highlight-sh"><div class="highlight"><pre><span></span>conda create -n bokehenv
+<span class="nb">source</span> activate bokehenv
+conda install bokeh
 </pre></div>
 </div>
 <p><strong>Example 4:</strong></p>
 <p>It is also possible to install packages into a named environment without the need to activate it first.  The <code class="docutils literal"><span class="pre">bokeh</span></code> environment must already exist for this work</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ conda install -n bokehenv bokeh
-$ <span class="nb">source</span> activate bokehenv
+<div class="highlight-sh"><div class="highlight"><pre><span></span>conda install -n bokehenv bokeh
+<span class="nb">source</span> activate bokehenv
 </pre></div>
 </div>
 <p>You’ll see these commands again as you walk through the AstroConda installation.</p>
@@ -200,15 +200,15 @@ $ <span class="nb">source</span> activate bokehenv
 <h2>Step 3: Get AstroConda<a class="headerlink" href="#step-3-get-astroconda" title="Permalink to this headline">¶</a></h2>
 <p>AstroConda is a package repository that is built to hook into the Anaconda distribution.  You can think of Anaconda (using Conda) as your environment manager, and AstroConda as an extra repository of packages and software (called a “channel” in Conda).  It contains many of the tools that were built into <code class="docutils literal"><span class="pre">Ureka</span></code>.  For more information on the AstroConda packages please see the <a class="reference external" href="http://astroconda.readthedocs.io/en/latest/installation.html">AstroConda doc page</a>. You will also want to reference this page if you need to include <code class="docutils literal"><span class="pre">iraf</span></code> in your AstroConda install.</p>
 <p>The next step is to add the <code class="docutils literal"><span class="pre">astroconda</span></code> channel.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ conda config --add channels http://ssb.stsci.edu/astroconda
+<div class="highlight-sh"><div class="highlight"><pre><span></span>conda config --add channels http://ssb.stsci.edu/astroconda
 </pre></div>
 </div>
 <p>Now we will create a new environment that contains AstroConda&#8217;s <code class="docutils literal"><span class="pre">stsci</span></code> metapackage</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ conda create -n astroconda stsci
+<div class="highlight-sh"><div class="highlight"><pre><span></span>conda create -n astroconda stsci
 </pre></div>
 </div>
 <p>and activate this new environment.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> activate astroconda
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="nb">source</span> activate astroconda
 </pre></div>
 </div>
 <p>Make sure you are installing the <code class="docutils literal"><span class="pre">stsci</span></code> metapackage into a new environment and not your root Anaconda environment.  If this has happened, please see the <a class="reference external" href="http://astroconda.readthedocs.io/en/latest/faq.html#i-installed-astroconda-into-my-anaconda-root-environment-what-now">AstroConda FAQ page</a> for instructions.</p>
@@ -216,7 +216,7 @@ $ <span class="nb">source</span> activate bokehenv
 <div class="section" id="step-3b-add-the-astropy-channel">
 <h2>Step 3B: Add the Astropy channel<a class="headerlink" href="#step-3b-add-the-astropy-channel" title="Permalink to this headline">¶</a></h2>
 <p>The Astropy Project also has a Anaconda channel which contains all of the <code class="docutils literal"><span class="pre">astropy</span></code> affiliated packages.  While some of these are already included in <code class="docutils literal"><span class="pre">astroconda</span></code>, if you think you might want some that aren’t you can use the following command</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ conda config --add channels astropy
+<div class="highlight-sh"><div class="highlight"><pre><span></span>conda config --add channels astropy
 </pre></div>
 </div>
 <p>and you now have the <code class="docutils literal"><span class="pre">astropy</span></code> channel included by default.</p>
@@ -229,19 +229,19 @@ $ <span class="nb">source</span> activate bokehenv
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">For a easy to use Conda reference sheet the Anaconda website has a helpful <a class="reference external" href="http://conda.pydata.org/docs/using/cheatsheet.html">Conda cheat sheet</a>, or you can pick up a hardcopy right outside the IT helpdesk room in muller 330.</p>
+<p class="last">For a easy to use Conda reference sheet the Anaconda website has a helpful <a class="reference external" href="http://conda.pydata.org/docs/using/cheatsheet.html">Conda cheat sheet</a>, or you can pick up a hardcopy right outside the IT helpdesk room in Muller 330.</p>
 </div>
-<p>Were going to simulate a fresh new bash shell for testing by using the following script, which you should save into a file called blackhole_env.sh:</p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">simulate fresh bash shell, working with Joe on this</p>
-</div>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> activate astroconda
-$ which python
-~/PREFIX#/envs/astroconda/bin/python
+<p>Were going to simulate a fresh new bash shell for testing, so open a new terminal window and use the following commands.  You can start from a <code class="docutils literal"><span class="pre">tcsh</span></code> terminal.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>/grp/hst/ssb/blackhole/interactive.sh
+<span class="nb">source</span> ~/.bash_profile
 </pre></div>
 </div>
-<p>Where PREFIX will be <code class="docutils literal"><span class="pre">[mini|ana]conda</span></code> and <code class="docutils literal"><span class="pre">#</span></code> is either <code class="docutils literal"><span class="pre">2</span></code> or <code class="docutils literal"><span class="pre">3</span></code> depending on which version you installed.</p>
+<p>If successful, the PS1 variable, responsible for controlling the look and feel of your shell prompt, will be reset to the system default; often <code class="docutils literal"><span class="pre">[user&#64;host:</span> <span class="pre">directory]$</span></code>. From here we will test Anaconda and your AstroConda install.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="nb">source</span> activate astroconda
+which python
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">which</span> <span class="pre">python</span></code> should return <code class="docutils literal"><span class="pre">/path/to/astroconda/bin/python</span></code>, where <code class="docutils literal"><span class="pre">/path/to/</span></code> will be the path to your Anaconda installation. If this test returns unexpcted results, you can contact <a class="reference external" href="mailto:support&#37;&#52;&#48;stsci&#46;edu">support<span>&#64;</span>stsci<span>&#46;</span>edu</a> for assistance.</p>
 </div>
 </div>
 
