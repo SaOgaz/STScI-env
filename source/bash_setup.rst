@@ -10,7 +10,7 @@ Step 1: Removing references to Ureka
 
 Remove all references to ``Ureka`` (``SSB`` , ``SSBX``, ``SSBDEV``) in your shell files.  If you have never edited your ``bash`` setup files ``.profile``, or ``.bash*``), you can ignore these for now as we are going to delete them all later on, and just focus on your ``tcsh`` files, these could include: ``.cshrc``, ``.setenv``, or ``.scienv``.  You may or may not have some of these files depending on when your machine was set up originally. Accounts created after 2008 may have an additional ``.mysetenv`` file.
 
-If you not sure what to look for, and haven’t edited your shell files before, look for references to ``ssbx``, ``ssbrel`` or ``ssbdev`` and remove those lines.  You can use the following listed commands to search for ``Ureka`` dependencies.  You may see a return from your ``$HOME/.ureka/.default`` file.  This is expected and can be ignored.
+If you not sure what to look for, and haven’t edited your shell files before, look for references to ``ssbx``, ``ssbrel`` or ``ssbdev`` and remove those lines.  You can use the following listed commands to search for ``Ureka`` dependencies.  You may see lines from  your ``$HOME/.ureka/.default`` and ``$HOME/.bash_history`` files.  This is expected and can be ignored.
 
 
 **Linux**:
@@ -74,7 +74,8 @@ Open up a new ``~/.bash_profile`` file.  Remember this should be a blank text fi
 
     # File - ~/.bashrc
 
-    # Tune your profile…
+    # Tune your profile… these are example only
+    # Replace these with desired paths
     export PATH="$PATH:$LOCAL_CUSTOM/bin:$PATH"
     export MANPATH="$LOCAL_CUSTOM/share/man:$MANPATH"
 

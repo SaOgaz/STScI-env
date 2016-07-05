@@ -223,6 +223,8 @@ latex_elements = {
 #'figure_align': 'htbp',
 }
 
+
+
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
@@ -230,6 +232,8 @@ latex_documents = [
     (master_doc, 'bashSTScI.tex', u'bashSTScI Documentation',
      u'Sara Ogaz, Joe Hunkler', 'manual'),
 ]
+
+latex_toplevel_sectioning = 'section'
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
