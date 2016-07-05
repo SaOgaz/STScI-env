@@ -233,7 +233,7 @@ latex_documents = [
      u'Sara Ogaz, Joe Hunkler', 'manual'),
 ]
 
-latex_toplevel_sectioning = 'section'
+latex_toplevel_sectioning = 'part'
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
