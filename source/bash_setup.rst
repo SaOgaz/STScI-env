@@ -52,8 +52,14 @@ Now that you have a backup of your ``bash`` files safely stored, wipe all ``bash
     rm ~/.profile
     rm ~/.bash*
 
+You should also delete your ``$HOME/.pydistutils.cfg`` file.  This file can interefere with Anaconda's Python install.
 
-Open up a new ``~/.bash_profile`` file.  Remember this should be a blank text file, since we just deleted the previous copy if it existed.  We will also set up a ``~/.bashrc`` file.  Below is an example of a standard ``~/.bash_profile`` and  ``~/.bashrc``.
+.. code-block:: sh
+
+    rm ~/.pydistutils.cfg
+
+
+Now you can open up a new ``~/.bash_profile`` file.  Remember this should be a blank text file, since we just deleted the previous copy if it existed.  We will also set up a ``~/.bashrc`` file.  Below is an example of a standard ``~/.bash_profile`` and  ``~/.bashrc``.
 
 .. code-block:: sh
 
@@ -135,19 +141,19 @@ Switching to bash as your default shell
 
 **For Mac**
 
-To switch your default shell on Mac machines, open a terminal and use the following command
+To switch your default shell on Mac machines, you can change your local system by opening a terminal and using the following command, you will need to enter your password when prompted:
 
 .. code-block:: sh
 
     chsh -s /bin/bash
 
-and enter your password. To verify that the change went through, restart your terminal program, and type the following:
+To verify that the change went through, restart your terminal program, and type the following:
 
 .. code-block:: sh
 
     echo $SHELL
 
-This command should return ``/bin/bash``
+This command should return ``/bin/bash``.  Remember this changes your **local** default only.  To change your default on all future systems and builds you should also follow the directions below for Linux machines so that your AD default is changed.  But keep in mind this immediately changes your default on all Linux machines.
 
 
 **For Linux**
