@@ -40,6 +40,10 @@ To do this you can use the ``-p`` option when installing Anaconda. At this time 
 
 Here you can change the folder name ``anaconda2`` to correspond to whichever version you chose to install, i.e. ``anaconda3``, ``miniconda2``, or ``miniconda3``.
 
+.. note::
+   
+   If you are an internal STScI user and have any questions about the content of this guide, please contact support@stsci.edu.
+
 
 .. toctree::
    :maxdepth: 2
