@@ -230,7 +230,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'bashSTScI.tex', u'bashSTScI Documentation',
-     u'Sara Ogaz, Joe Hunkler', 'manual'),
+     u'Sara Ogaz, Joe Hunkler', 'howto'),
 ]
 
 latex_toplevel_sectioning = 'part'
