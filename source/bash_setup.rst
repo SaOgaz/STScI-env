@@ -68,7 +68,7 @@ Now you can open up a new ``~/.bash_profile`` file.  Remember this should be a b
     # Common shell aliases
     alias ls='ls -G'
     alias ll='ls -l'
-    alias grep='--color=auto'
+    alias grep='grep --color=auto'
 
     if [ -f $HOME/.bashrc ]; then
 	source $HOME/.bashrc
@@ -84,8 +84,6 @@ Now you can open up a new ``~/.bash_profile`` file.  Remember this should be a b
     # Replace these with desired paths
     export PATH="$PATH:$LOCAL_CUSTOM/bin:$PATH"
     export MANPATH="$LOCAL_CUSTOM/share/man:$MANPATH"
-
-    alias rdesktop='rdesktop -g 85%'
 
     # EOF
 
